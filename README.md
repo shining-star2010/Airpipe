@@ -11,13 +11,8 @@ Scan → file downloads. Done.
 
 ## Install
 ```bash
-# macOS
-brew install sanyam-g/tap/airpipe
-
-# Linux (amd64)
-curl -sL https://github.com/Sanyam-G/Airpipe/releases/latest/download/airpipe-linux-amd64 -o airpipe
-chmod +x airpipe
-sudo mv airpipe /usr/local/bin/
+# Auto-Detection
+curl -sL https://raw.githubusercontent.com/Sanyam-G/Airpipe/main/install.sh |sh
 
 # From source
 go install github.com/Sanyam-G/Airpipe/cmd/airpipe@latest
