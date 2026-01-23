@@ -1,6 +1,13 @@
 #!/bin/sh
 set -e
 
+# Check if the user is root
+if [ "$(id -u)" -eq 0 ]; then
+    SUDO=""
+else
+    SUDO="sudo"
+fi
+
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
 
@@ -15,5 +22,8 @@ URL="https://github.com/Sanyam-G/Airpipe/releases/latest/download/airpipe-${OS}-
 echo "Downloading airpipe for ${OS}-${ARCH}..."
 curl -sL "$URL" -o /tmp/airpipe
 chmod +x /tmp/airpipe
-sudo mv /tmp/airpipe /usr/local/bin/airpipe
+
+# Use the dynamic variable here
+$SUDO mv /tmp/airpipe /usr/local/bin/airpipe
+
 echo "Installed! Run: airpipe send <file>"
